@@ -27,7 +27,7 @@ from .recognizerDistillation import RecognizerDistillation
 
 __all__ = [
     'BaseRecognizer', 'Recognizer1D', 'Recognizer2D', 'Recognizer3D',
-    'RecognizerTransformer', 'RecognizerTransformerDenseAnchors', 'RecognizerGCN', 'RecognizerMRI', 'RecognizerTransformerFeaturesInference', 
+    'RecognizerTransformer', 'RecognizerTransformerDenseAnchors', 'RecognizerGCN', 'RecognizerMRI', 'RecognizerTransformerFeaturesInference',
     'Recognizer3DMRI', 'RecognizerTransformer_MRI', 'MoViNetRecognizerFrame',
     'RecognizerAction', 'RecognizerDistillation'
 ]

@@ -49,7 +49,7 @@ def main(args):
     for filename in tqdm(files):
         with open(filename, 'r') as f:
             label_v2 = json.load(f)
-        
+
         # "UrlLocal": "spain_laliga/2014-2015/2015-02-14 - 20-00 Real Madrid 2 - 0 Dep. La Coruna/",
 
         # video_filenames = [
@@ -81,7 +81,7 @@ def main(args):
 
         game_start_secs_in_videos = [parse_gamestart_secs_line(lines[1]), parse_gamestart_secs_line(lines[4])]
 
-        # {"path": "/mnt/scratch/xin/datatang_stage123/stage1/converted/398x224_fps25/acm.v.int.1.serieA.21.09.2019.fullmatch.net_17m20s-18m40s.mp4", 
+        # {"path": "/mnt/scratch/xin/datatang_stage123/stage1/converted/398x224_fps25/acm.v.int.1.serieA.21.09.2019.fullmatch.net_17m20s-18m40s.mp4",
         # "clip_length": 80, "annotations": [{"label": "\u5c04\u95e8", "event_time": 46.0}, {"label": "\u5c04\u95e8", "event_time": 66.0}]}
 
         # maintain all possible jsons, the for each annotation, see which range it falls within?
@@ -113,9 +113,9 @@ def main(args):
 
                 single_json_data = {'path': new_filename, 'full_half_path': video_filenames[video_index],
                     'clip_length': args.clip_length, 'clip_start': start, 'clip_end': start + args.clip_length,
-                    'label_v2_filename': filename, 
+                    'label_v2_filename': filename,
                     "annotations":[]}
-                
+
                 # print(new_filename)
                 # assert '..' not in new_filename
 
@@ -128,7 +128,7 @@ def main(args):
             # new_filename = os.path.join(args.output_folder, new_shortname_root).replace('.mkv', '.{}.{}.{}.mkv'.format(start_time_str.replace(':','-'),effective_start,args.clip_length))
             # single_json_data = {'path': new_filename, 'full_half_path': video_filenames[video_index],
             #     'clip_length': args.clip_length, 'clip_start': start, 'clip_end': start + args.clip_length,
-            #     'label_v2_filename': filename, 
+            #     'label_v2_filename': filename,
             #     "annotations":[]}
 
             # json_files[video_index][-1] = single_json_data
@@ -149,12 +149,12 @@ def main(args):
             #     "position": "999583",
             #     "team": "away",
             #     "visibility": "visible"
-            # },            
+            # },
             game_half_index = int(annotation['gameTime'].split('-')[0]) - 1 # convert 1, 2 to 0, 1
             game_time_str = annotation['gameTime'].split('-')[1]
             game_time_secs = int(game_time_str.split(':')[0]) * 60 + int(game_time_str.split(':')[1])
             event_time_game_half_video = game_time_secs + game_start_secs_in_videos[game_half_index] # offset gametime with gamestart secs in video read from the video_ini file
-            
+
             game_time_secs_index = event_time_game_half_video // args.clip_length
             for json_index in [-1, game_time_secs_index - 1, game_time_secs_index, game_time_secs_index + 1]:
                 # when is json_index -1?
@@ -182,19 +182,18 @@ def main(args):
                     json.dump(json_data, f, indent=4)
                 # print('Wrote', json_filename)
                 json_list.append(json_filename)
-    
+
     with open(os.path.join(args.clips_folder, 'json_list.txt'), "w") as g:
         for json_filename in json_list:
             g.write(json_filename + '\n')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--raw_videos_root', type=str, required = True)	
-    parser.add_argument('--labels_root', type=str, required = True)	
+    parser.add_argument('--raw_videos_root', type=str, required = True)
+    parser.add_argument('--labels_root', type=str, required = True)
     parser.add_argument('--clips_folder', type=str, required = True)
     parser.add_argument('--clip_length', type=int, default = 10)
     parser.add_argument('--extension', type=str, default = 'mp4')
 
     args = parser.parse_args()
     main(args)
-

@@ -25,7 +25,7 @@ def balance_list(filename, output_file):
         timestamp = int(filename.split('.')[-3])
         return timestamp
 
-    # some label filtering since some match videos contain a lot of content before or after 
+    # some label filtering since some match videos contain a lot of content before or after
     match_started = False
     current_match = None
 

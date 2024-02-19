@@ -227,7 +227,7 @@ class BaseReader(object):
 
 class ExtractEmbeddingReader(BaseReader):
     """
-    data prepare for getting erine embedding 
+    data prepare for getting erine embedding
     """
     def _pad_batch_records(self, batch_records):
         """

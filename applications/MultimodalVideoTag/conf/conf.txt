@@ -11,7 +11,7 @@ feature_dtypes = ['float32', 'float32', 'int64']
 feature_lod_level = [1, 1, 0]
 embedding_size = 512
 lstm_size_img = 512
-lstm_size_audio = 128 
+lstm_size_audio = 128
 num_classes = 110
 top_n = [1,2,3,5]
 num_first_classes = 20
@@ -34,8 +34,8 @@ modal_drop_rate = 0.0
 ernie_pretrain_dict_path = "model_pretrained/ernie_v1_params/"
 filelist = "./datasets/feature_files/"
 url_title_label_file = "./datasets/train.txt"
-warmup_proportion = 0.0 
-early_stop = 15 
+warmup_proportion = 0.0
+early_stop = 15
 
 [VALID]
 batch_size = 16

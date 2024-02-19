@@ -12,7 +12,7 @@ class BaseDetector(nn.Layer):
 
     def init_weights(self):
         """Initialize the model network weights. """
-        self.backbone.init_weights()  
+        self.backbone.init_weights()
         self.head.init_weights()
 
     def extract_feature(self, imgs, iter_num):

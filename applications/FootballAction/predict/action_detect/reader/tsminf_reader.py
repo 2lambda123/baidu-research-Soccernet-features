@@ -94,7 +94,7 @@ class TSMINFReader(DataReader):
             def image_buf(image_id_path_buf):
                 """
                 image_buf reader
-                """  
+                """
                 try:
                     img_path = image_id_path_buf[1]
                     img = Image.open(img_path).convert("RGB")
@@ -110,11 +110,11 @@ class TSMINFReader(DataReader):
                 for k in range(len(image_list_part)):
                     image_id_path_buf_list.append([k, image_list_part[k], None])
 
-                
+
                 with concurrent.futures.ThreadPoolExecutor(max_workers=read_thread_num) as executor:
                     executor.map(lambda image_id_path_buf: image_buf(image_id_path_buf), image_id_path_buf_list)
                 imgs_seg_list = [x[2] for x in image_id_path_buf_list]
-                    
+
                 # add the fault-tolerant for bad image
                 for k in range(len(image_id_path_buf_list)):
                     img_buf = image_id_path_buf_list[k][2]
@@ -128,14 +128,14 @@ class TSMINFReader(DataReader):
                         imgs_seg_list[k] = img_buf
                 for pad_id in range(len(imgs_seg_list), seg_num):
                     imgs_seg_list.append(imgs_seg_list[-1])
-                yield imgs_seg_list      
+                yield imgs_seg_list
 
 
         def inference_imgs_transform(imgs_list, mode, seg_num, seglen, short_size,\
                                     target_size, img_mean, img_std):
             """
             inference_imgs_transform
-            """ 
+            """
             imgs_ret = imgs_transform(imgs_list, mode, seg_num, seglen, short_size,
                         target_size, img_mean, img_std)
             label_ret = 0
@@ -261,9 +261,9 @@ def group_multi_scale_crop(img_group, target_size, scales=None, \
                 'offset_w': w_offset,
                 'offset_h': h_offset
                 }
-             
+
         return crop_info
-    
+
     crop_info = _sample_crop_size(im_size)
     crop_w = crop_info['crop_w']
     crop_h = crop_info['crop_h']
@@ -355,4 +355,3 @@ def group_scale(imgs, target_size):
             resized_imgs.append(img.resize((ow, oh), Image.BILINEAR))
 
     return resized_imgs
-

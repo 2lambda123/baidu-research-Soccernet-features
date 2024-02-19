@@ -44,7 +44,7 @@ def main(args):
             new_filename = os.path.join(args.clips_folder, new_shortname_root).replace('.mkv', f'.{start_time_str_filename}.{start}.{args.clip_length}.{args.extension}')
             new_filename = new_filename.replace(" ", "_")
 
-            # current_filename = os.path.join(args.clips_folder, new_shortname_root).replace('.mkv', 
+            # current_filename = os.path.join(args.clips_folder, new_shortname_root).replace('.mkv',
             #     '.{}.{}.{}.{}'.format(start_time_str.replace(':','-'), effective_start, args.clip_length, 'mkv'))
 
             # command = f"mv \'{current_filename}\' {new_filename}"

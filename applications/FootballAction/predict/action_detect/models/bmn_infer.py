@@ -19,7 +19,7 @@ from paddle.inference import create_predictor
 
 class InferModel(object):
     """bmn infer"""
-    def __init__(self, cfg, name='BMN'): 
+    def __init__(self, cfg, name='BMN'):
         name = name.upper()
         self.name           = name
         model_file          = cfg[name]['model_file']
@@ -134,7 +134,7 @@ class InferModel(object):
 
 
 if __name__ == "__main__":
-    cfg_file = '/home/work/inference/configs/configs.yaml' 
+    cfg_file = '/home/work/inference/configs/configs.yaml'
     cfg = parse_config(cfg_file)
     model = InferModel(cfg)
 
@@ -152,5 +152,5 @@ if __name__ == "__main__":
     results = {'proposal': outputs}
     with open('results.json', 'w', encoding='utf-8') as f:
        data = json.dumps(results, indent=4, ensure_ascii=False)
-       f.write(data) 
+       f.write(data)
     print('cost time = {} min'.format((t1 - t0) / 60.0))

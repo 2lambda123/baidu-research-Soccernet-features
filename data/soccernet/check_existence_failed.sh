@@ -134,4 +134,3 @@ ffmpeg -ss 0:51:10 -i "/mnt/big/multimodal_sports/SoccerNet_HQ/raw_data/spain_la
 ffmpeg -ss 0:11:10 -i "/mnt/big/multimodal_sports/SoccerNet_HQ/raw_data/spain_laliga/2016-2017/2017-04-26 - 20-30 Barcelona 7 - 1 Osasuna/2_HQ.mkv"                 -vf scale=456x256 -map 0:v -map 0:a -c copy  -c:v libx264 -c:a aac -strict experimental -b:a 98k                 -t 0:00:10 "/mnt/storage/gait-0/xin/dataset/soccernet_456x256/spain_laliga.2016-2017.2017-04-26_-_20-30_Barcelona_7_-_1_Osasuna.2_HQ.0-11-10.680.10.mkv"
 
 ffmpeg -ss 0:11:10 -i "/mnt/big/multimodal_sports/SoccerNet_HQ/raw_data/spain_laliga/2016-2017/2017-04-26 - 20-30 Barcelona 7 - 1 Osasuna/2_HQ.mkv"                 -vf scale=456x256 -map 0:v -map 0:a -c copy  -c:v libx264 -c:a aac -strict experimental -b:a 98k                 -t 0:00:10 "/mnt/storage/gait-0/xin/dataset/soccernet_456x256/spain_laliga.2016-2017.2017-04-26_-_20-30_Barcelona_7_-_1_Osasuna.2_HQ.0-11-10.680.10.mkv"
-

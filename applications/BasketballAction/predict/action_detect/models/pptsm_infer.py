@@ -16,7 +16,7 @@ from paddle.inference import create_predictor
 
 class InferModel(object):
     """pptsm infer"""
-    def __init__(self, cfg, name='PPTSM'): 
+    def __init__(self, cfg, name='PPTSM'):
         name = name.upper()
         self.name           = name
         model_file          = cfg[name]['model_file']
@@ -67,11 +67,11 @@ class InferModel(object):
 
 
 if __name__ == "__main__":
-    cfg_file = '/home/work/inference/configs/configs.yaml' 
+    cfg_file = '/home/work/inference/configs/configs.yaml'
     cfg = parse_config(cfg_file)
     model = InferModel(cfg)
 
-    imgs_path = '/home/work/datasets/WorldCup2018/frames/6e577252c4004961ac7caa738a52c238/' 
+    imgs_path = '/home/work/datasets/WorldCup2018/frames/6e577252c4004961ac7caa738a52c238/'
     imgs_list = get_images(imgs_path)
     t0 = time.time()
     cfg['PPTSM']['frame_list'] = imgs_list

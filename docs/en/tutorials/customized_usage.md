@@ -25,7 +25,7 @@ Please refer to [modular desigh](modular_design.md) for more information.
   - change framework
   - change initialized function
   - customized loss
-  
+
 ## Customized Solvers
 
 1. step decay and epoch decay

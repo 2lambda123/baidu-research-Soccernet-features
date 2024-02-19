@@ -16,7 +16,7 @@ from paddle.inference import create_predictor
 
 class InferModel(object):
     """audio infer"""
-    def __init__(self, cfg, name='AUDIO'): 
+    def __init__(self, cfg, name='AUDIO'):
         name = name.upper()
         self.name           = name
         model_file          = cfg[name]['model_file']
@@ -64,7 +64,7 @@ class InferModel(object):
 
 
 if __name__ == "__main__":
-    cfg_file = '/home/work/inference/configs/configs.yaml' 
+    cfg_file = '/home/work/inference/configs/configs.yaml'
     cfg = parse_config(cfg_file)
     model = InferModel(cfg)
 

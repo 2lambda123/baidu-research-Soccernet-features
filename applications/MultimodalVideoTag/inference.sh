@@ -1,4 +1,4 @@
-# inference sh 
+# inference sh
 export CUDA_VISIBLE_DEVICES=0
 export FLAGS_eager_delete_tensor_gb=0.0
 export FLAGS_sync_nccl_allreduce=1

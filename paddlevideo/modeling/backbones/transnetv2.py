@@ -579,4 +579,3 @@ class TransNetV2(nn.Layer):
             return one_hot, out_dict
 
         return one_hot
-

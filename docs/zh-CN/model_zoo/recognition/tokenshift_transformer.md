@@ -56,14 +56,14 @@ UCF-101数据下载及准备请参考[UCF-101数据准备](../../dataset/ucf101.
     # videos数据格式
     python3 main.py -c configs/recognition/token_transformer/tokShift_transformer_ucf101_256_videos.yaml --validate --seed=1234
     ```
-    
+
 - 开启amp混合精度训练，可加速训练过程，其训练启动命令如下：
 
     ```bash
     # videos数据格式
     python3 main.py --amp -c configs/recognition/token_transformer/tokShift_transformer_ucf101_256_videos.yaml --validate --seed=1234
     ```
-    
+
 - 另外您可以自定义修改参数配置，以达到在不同的数据集上进行训练/测试的目的，建议配置文件的命名方式为`模型_数据集名称_文件格式_数据格式_采样方式.yaml`，参数用法请参考[config](../../contribute/config.md)。
 
 

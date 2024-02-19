@@ -94,11 +94,11 @@ class VideoDenseAnchorsDataset(BaseDataset):
                 results = self.pipeline(results)
 
                 # Sample results:
-                # {'filename': '/mnt/storage/gait-0/xin/dataset/soccernet_456x256/england_epl.2014-2015.2015-02-21_-_18-00_Chelsea_1_-_1_Burnley.1_HQ.0-00-00.0.10.mkv', 
-                # 'label': 0, 'event_time': 2.0, 'clip_length_secs': 10.0, 'format': 'video', 'backend': 'decord', 
-                # 'frames': <decord.video_reader.VideoReader object at 0x7f4d2affd0b8>, 'frames_len': 250, 
-                # 'random_offset': 1.283822639752263, 'start_secs_0': 0.783822639752263, 'end_secs_0': 5.7838226397522625, 'start_secs_clipped': 0.783822639752263, 'end_secs_clipped': 5.7838226397522625, 
-                # 'start_idx': 20, 'end_idx': 145, 'start_secs': 0.783822639752263, 'end_secs': 5.7838226397522625, 'event_time_in_sampled_clip_fraction': 0.2432354720495474, 
+                # {'filename': '/mnt/storage/gait-0/xin/dataset/soccernet_456x256/england_epl.2014-2015.2015-02-21_-_18-00_Chelsea_1_-_1_Burnley.1_HQ.0-00-00.0.10.mkv',
+                # 'label': 0, 'event_time': 2.0, 'clip_length_secs': 10.0, 'format': 'video', 'backend': 'decord',
+                # 'frames': <decord.video_reader.VideoReader object at 0x7f4d2affd0b8>, 'frames_len': 250,
+                # 'random_offset': 1.283822639752263, 'start_secs_0': 0.783822639752263, 'end_secs_0': 5.7838226397522625, 'start_secs_clipped': 0.783822639752263, 'end_secs_clipped': 5.7838226397522625,
+                # 'start_idx': 20, 'end_idx': 145, 'start_secs': 0.783822639752263, 'end_secs': 5.7838226397522625, 'event_time_in_sampled_clip_fraction': 0.2432354720495474,
                 # 'imgs': array([[[[-0.6109256 , -0.55955136, -0.6109256 , ..., -0.57667613,
 
             except Exception as e:
@@ -109,7 +109,7 @@ class VideoDenseAnchorsDataset(BaseDataset):
                         format(results['filename'], ir))
                 idx = random.randint(0, len(self.info) - 1)
                 continue
-            
+
             add_coordinates_embedding_to_imgs(results)
 
             # print(results['imgs'].shape)
@@ -118,7 +118,7 @@ class VideoDenseAnchorsDataset(BaseDataset):
             # import ipdb; ipdb.set_trace()
 
             return {
-                'imgs': results['imgs'], 
+                'imgs': results['imgs'],
                 'label': np.array([results['label']]),
                 'event_time_labels': np.array(results['event_time_in_sampled_clip_fraction'], dtype = np.float32)}
 
@@ -137,7 +137,7 @@ class VideoDenseAnchorsDataset(BaseDataset):
                         format(results['filename'], ir))
                 idx = random.randint(0, len(self.info) - 1)
                 continue
-            
+
             add_coordinates_embedding_to_imgs(results)
 
             data = {

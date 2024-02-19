@@ -75,7 +75,7 @@ def t2v_metrics(sims, query_masks=None):
     # possible partial orderings implied by the ties. See # this paper for a discussion:
     #    McSherry, Frank, and Marc Najork,
     #    "Computing information retrieval performance measures efficiently in the presence
-    #    of tied scores." European conference on information retrieval. Springer, Berlin, 
+    #    of tied scores." European conference on information retrieval. Springer, Berlin,
     #    Heidelberg, 2008.
     # http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.145.8892&rep=rep1&type=pdf
 

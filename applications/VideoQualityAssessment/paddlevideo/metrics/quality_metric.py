@@ -40,14 +40,14 @@ class QuqlityMetric(BaseMetric):
         """update metrics during each iter
         """
         labels = data[1]
-        
+
         predict_output = paddle.tolist(outputs)
         predict_label = paddle.tolist(labels)
         predict_output_len = len(predict_output)
         for i in range(predict_output_len):
             self.output.append(predict_output[i][0])
             self.label.append(predict_label[i][0])
-        
+
         if batch_id % self.log_interval == 0:
             logger.info("[TEST] Processing batch {}/{} ...".format(
                 batch_id,
@@ -60,7 +60,7 @@ class QuqlityMetric(BaseMetric):
         test_label_np = np.array(self.label)
         PLCC = stats.pearsonr(test_output_np, test_label_np)[0]
         SROCC = stats.spearmanr(test_output_np, test_label_np)[0]
-        
+
         logger.info('[TEST] finished, PLCC= {}, SROCC= {} '.format(PLCC, SROCC))
 
     def accumulate_train(self, output, label):
@@ -70,4 +70,3 @@ class QuqlityMetric(BaseMetric):
         PLCC = stats.pearsonr(output_np, label_np)[0]
         SROCC = stats.spearmanr(output_np, label_np)[0]
         return PLCC, SROCC
-

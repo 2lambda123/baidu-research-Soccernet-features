@@ -47,13 +47,13 @@ def parse_args():
 
 class InferModel(object):
     """lstm infer"""
-    def __init__(self, cfg, name='ACTION'): 
+    def __init__(self, cfg, name='ACTION'):
         name = name.upper()
         self.name           = name
         self.threshold      = cfg.INFER.threshold
         self.cfg            = cfg
         self.label_map      = load_class_file(cfg.MODEL.class_name_file)
-       
+
 
     def load_inference_model(self, model_dir, use_gpu=True):
         """model_init

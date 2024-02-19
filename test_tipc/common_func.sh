@@ -23,7 +23,7 @@ function func_set_params(){
         echo " "
     elif [[ ${value} = "null" ]] || [[ ${value} = " " ]] || [ ${#value} -le 0 ];then
         echo " "
-    else 
+    else
         echo "${key}=${value}"
     fi
 }

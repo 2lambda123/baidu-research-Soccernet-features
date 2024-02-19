@@ -18,7 +18,7 @@ function _set_params(){
     index="1"
     model_name=${model_item}_bs${batch_size}_${fp_item}
 
-#   以下不用修改   
+#   以下不用修改
     device=${CUDA_VISIBLE_DEVICES//,/ }
     arr=(${device})
     num_gpu_devices=${#arr[*]}
@@ -27,9 +27,9 @@ function _set_params(){
 function _train(){
     echo "Train on ${num_gpu_devices} GPUs"
     echo "current CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES, gpus=$num_gpu_devices, batch_size=$batch_size"
-    
+
     case ${run_mode} in
-    sp) 
+    sp)
         if [ ${fp_item} == 'fp32' ]; then
             train_cmd="python -u main.py -c configs/recognition/timesformer/timesformer_ucf101_videos_benchmark_bs${batch_size}.yaml"
         elif [ ${fp_item} == 'fp16' ]; then
@@ -64,15 +64,14 @@ function _train(){
         export job_fail_flag=0
     fi
     kill -9 `ps -ef|grep 'python'|awk '{print $2}'`
- 
+
     if [ $run_mode = "mp" -a -d mylog ]; then
         rm ${log_file}
         cp mylog/workerlog.0 ${log_file}
     fi
 }
- 
+
 source ${BENCHMARK_ROOT}/scripts/run_model.sh   # 在该脚本中会对符合benchmark规范的log使用analysis.py 脚本进行性能数据解析;该脚本在连调时可从benchmark repo中下载https://github.com/PaddlePaddle/benchmark/blob/master/scripts/run_model.sh;如果不联调只想要产出训练log可以注掉本行,提交时需打开
 _set_params $@
 # _train       # 如果只想产出训练log,不解析,可取消注释
 _run     # 该函数在run_model.sh中,执行时会调用_train; 如果不联调只想要产出训练log可以注掉本行,提交时需打开
-

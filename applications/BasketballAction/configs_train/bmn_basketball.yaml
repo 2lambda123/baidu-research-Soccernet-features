@@ -70,7 +70,7 @@ OPTIMIZER:                                          #OPTIMIZER field
   learning_rate:
     iter_step: True
     name: 'CustomPiecewiseDecay'
-    boundaries: [8000]                     
+    boundaries: [8000]
     values: [0.001, 0.0001]
   weight_decay:
     name: 'L2'

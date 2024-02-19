@@ -39,7 +39,7 @@ class DenseAnchorLoss(BaseWeightedLoss):
         # print('event_time_labels', event_time_labels)
         cls_one_hot = F.one_hot(cls_labels, event_times.shape[1])
         background_mask = paddle.ones_like(cls_one_hot)
-        background_mask[:, :, -1] = 0.0      
+        background_mask[:, :, -1] = 0.0
         event_times_for_labeled_class = paddle.squeeze(paddle.sum(event_times * cls_one_hot * background_mask, axis = 2), 1)
         # print('cls_one_hot', cls_one_hot)
         # print('background_mask', background_mask)

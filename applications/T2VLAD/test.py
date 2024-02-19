@@ -136,7 +136,7 @@ def evaluation(config, logger=None, trainer=None):
         all_text_num = samples['text'].shape[0]
         text_keys = ['text', 'cap_id', 'att_mask', 'text_token_mask']
         chk = 100
-        tck = 100 
+        tck = 100
 
         if samples['text'].shape[0] % chk == 0:
             vid_batch = samples['text'].shape[0] // chk
@@ -144,7 +144,7 @@ def evaluation(config, logger=None, trainer=None):
             vid_batch = samples['text'].shape[0] // chk + 1
         if samples['text'].shape[0] % tck == 0:
             text_batch  =  samples['text'].shape[0] // tck
-        else: 
+        else:
             text_batch  =  samples['text'].shape[0] // tck + 1
         sub_sims = []
         for idx in range(text_batch):

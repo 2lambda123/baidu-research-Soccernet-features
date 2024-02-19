@@ -200,28 +200,28 @@ head:
         <ul><li><b>Loss</b></li>
           <ul>
             <li>CrossEntropy</li>
-            <li>BMNLoss</li>  
-          </ul>  
-        </ul>  
+            <li>BMNLoss</li>
+          </ul>
+        </ul>
         <ul><li><b>Metrics</b></li>
           <ul>
             <li>CenterCrop</li>
-            <li>MultiCrop</li>  
-          </ul>  
+            <li>MultiCrop</li>
+          </ul>
         </ul>
       </td>
       <td>
         <ul><li><b>Video</b></li>
           <ul>
             <li>Mixup</li>
-            <li>Cutmix</li>  
-          </ul>  
+            <li>Cutmix</li>
+          </ul>
         </ul>
         <ul><li><b>Image</b></li>
             <ul>
                 <li>Scale</li>
                 <li>Random FLip</li>
-                <li>Jitter Scale</li>  
+                <li>Jitter Scale</li>
                 <li>Crop</li>
                 <li>MultiCrop</li>
                 <li>Center Crop</li>
@@ -230,7 +230,7 @@ head:
                 <li>PackOutput</li>
             </ul>
          </ul>
-      </td>  
+      </td>
     </tr>
 
 

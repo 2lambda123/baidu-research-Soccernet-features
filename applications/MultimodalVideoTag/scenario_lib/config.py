@@ -67,5 +67,5 @@ def print_configs(cfg, mode):
                 logger.info("    {}:{}".format(k, v))
         else:
             logger.info("{}:{}".format(sec, sec_items))
-            
+
     logger.info("-------------------------------------------------")

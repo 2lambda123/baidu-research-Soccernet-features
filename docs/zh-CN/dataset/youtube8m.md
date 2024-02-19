@@ -13,8 +13,8 @@ YouTube-8M 是一个大规模视频分类数据集，包含800多万个视频url
 
 **每个视频的长度在120s到500s之间
 由于视频数据量太大，因此预先使用图像分类模型提取了frame-level的特征，并使用PCA对特征进行了降维处理得到多帧1024维的特征，类似地用音频模型处理得到多帧128维的音频特征。**
-> 这里用到的是YouTube-8M 2018年更新之后的数据集（May 2018 version (current): 6.1M videos, 3862 classes, 3.0 labels/video, 2.6B audio-visual features）。  
-  
+> 这里用到的是YouTube-8M 2018年更新之后的数据集（May 2018 version (current): 6.1M videos, 3862 classes, 3.0 labels/video, 2.6B audio-visual features）。
+
 
 ## 数据集下载
 
@@ -52,8 +52,7 @@ YouTube-8M 是一个大规模视频分类数据集，包含800多万个视频url
 
     python3.7 split_yt8m.py train.list # 拆分每个train*.pkl变成多个train*_split*.pkl
     python3.7 split_yt8m.py val.list # 拆分每个validate*.pkl变成多个validate*_split*.pkl
-    
+
     ls pkl_frame/train*_split*.pkl > train.list # 将train*_split*.pkl的路径重新写入train.list
     ls pkl_frame/validate*_split*.pkl > val.list # 将validate*_split*.pkl的路径重新写入val.list
     ```
-

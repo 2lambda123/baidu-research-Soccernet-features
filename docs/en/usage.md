@@ -16,12 +16,12 @@ PaddleVideo
     ├── output #ouput destination
     |    ├── example
     |    |   ├── example_best.pdparams #path_to_weights
-    |    |   └── ...  
-    |    └── ...  
+    |    |   └── ...
+    |    └── ...
     ├── log  #log file destination.
     |    ├── worker.0
     |    ├── worker.1
-    |    └── ...  
+    |    └── ...
     └── inference #inference files destination.
          ├── .pdiparams file
          ├── .pdimodel file
@@ -84,7 +84,7 @@ After starting training, log files will generated, and its format is shown as be
 
     [12/28 17:31:38] END epoch:80  val loss_avg: 0.52208 top1_avg: 0.84398 top5_avg: 0.97393 elapse_avg: 0.234 reader_avg: 0.000 elapse_sum: 7.021s ips: 136.73686 instance/sec.
 
-[the best Acc]  
+[the best Acc]
 
     [12/28 17:28:42] Already save the best model (top1 acc)0.8494
 

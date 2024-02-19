@@ -52,7 +52,7 @@ def main(args):
             nms_from = int(np.maximum(-(window/2)+max_index,0))
             nms_to = int(np.minimum(max_index+int(window/2), len(detections_tmp)))
             detections_tmp[nms_from:nms_to] = -1
-        
+
         return indexes, MaxValues
 
     def compute_nms():
@@ -197,10 +197,10 @@ def main(args):
 
     compute_nms()
 
-    results =  evaluate(SoccerNet_path=soccernet_path, 
+    results =  evaluate(SoccerNet_path=soccernet_path,
                     Predictions_path=result_jsons_root,
                     split="valid",
-                    prediction_file="results_spotting.json", 
+                    prediction_file="results_spotting.json",
                     version=2)
 
     print("Average mAP: ", results["a_mAP"])
@@ -276,10 +276,10 @@ def main(args):
 
 # def apply_nms(series, window = 60, )
 
-#     results =  evaluate(SoccerNet_path=dataloader.dataset.path, 
+#     results =  evaluate(SoccerNet_path=dataloader.dataset.path,
 #                  Predictions_path=output_results,
 #                  split="test",
-#                  prediction_file="results_spotting.json", 
+#                  prediction_file="results_spotting.json",
 #                  version=2)
 
 # print("Average mAP: ", results["a_mAP"])

@@ -21,7 +21,7 @@ def get_video_duration(video_file_path):
 def main(args):
     # sample filename /mnt/big/multimodal_sports/SoccerNet_HQ/raw_data/spain_laliga/2016-2017/2016-08-20 - 19-15 Barcelona 6 - 2 Betis/1_HQ.mkv
     files = sorted(glob.glob(os.path.join(args.videos_folder, f'*_LQ.{args.extension}')))
- 
+
     if not os.path.exists(args.output_folder):
         os.mkdir(args.output_folder)
 

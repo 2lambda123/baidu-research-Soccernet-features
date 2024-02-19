@@ -1,7 +1,7 @@
 # 修改
 # 并行，少用glob
 
-# Lower video resolution 
+# Lower video resolution
 
 (high resolution is very slow for training)
 
@@ -69,7 +69,7 @@ cp /mnt/storage/gait-0/xin/dataset/soccernet_456x256/train.list .
 cp /mnt/storage/gait-0/xin/dataset/soccernet_456x256/val.list .
 cp /mnt/storage/gait-0/xin/dataset/soccernet_456x256/test.list .
 
-# pretrained: "pretrained_weights/SwinTransformer_imagenet.pdparams" 
+# pretrained: "pretrained_weights/SwinTransformer_imagenet.pdparams"
 
 python3.7 -u -B -m paddle.distributed.launch --gpus="0,1,2,3,4,5,6,7"  --log_dir=log_videoswin main.py --validate -c data/soccernet/soccernet_videoswin_k400.yaml
 
@@ -119,7 +119,7 @@ global_batch_size
 
 num_seg 8 seg_len 1, equally sample 8 frames from the clip
 
-put  "RecognizerTransformerFeaturesInference" #Mandatory, indicate the type of network, associate to the 'paddlevideo/modeling/framework/' 
+put  "RecognizerTransformerFeaturesInference" #Mandatory, indicate the type of network, associate to the 'paddlevideo/modeling/framework/'
 
 copy test.py to paddlevideo/tasks/test.py
 
@@ -139,7 +139,7 @@ python3.7 -B -m paddle.distributed.launch --gpus="0" --log_dir=log_soccernet_fea
 python3.7 -B -m paddle.distributed.launch --gpus="0" --log_dir=log_soccernet_feature_test  main.py  --test -c data/soccernet_inference/soccernet_videoswin_k400_extract_features.yaml -w pretrained_weights/swin_base_patch4_window7_224.pdparams -o features_dir=/mnt/storage/gait-0/xin/dev/PaddleVideo/temp2 -o DATASET.test.file_path=inference2.list
 
 
-END epoch:1   val 
+END epoch:1   val
 END epoch:1   train
 
 mkdir log_videoswin_11_videoswin/
@@ -149,4 +149,3 @@ python -u -B -m paddle.distributed.launch --gpus="0,1,2,3,4,5,6,7" --log_dir=log
 
 
 /mnt/home/xin/.conda/envs/paddle_soccernet_feature_extraction/lib/python3.7/site-packages/paddle/fluid/dataloader/collate.py
-

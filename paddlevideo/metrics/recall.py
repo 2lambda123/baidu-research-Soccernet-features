@@ -1,5 +1,5 @@
 import numpy as np
-import paddle 
+import paddle
 
 def _recalls(all_ious, proposal_nums, thrs):
 

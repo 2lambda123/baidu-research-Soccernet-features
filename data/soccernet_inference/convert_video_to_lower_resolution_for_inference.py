@@ -37,17 +37,17 @@ def main(args):
 
         game_start_secs = game_start_secs_in_videos[game_half_index]
         # game_end_secs = game_start_secs + 45 * 60
-        
+
         # make necessary folders
         parts = filename.split('/')
         new_shortname_root = '.'.join(parts[-4:])
         new_filename = os.path.join(args.output_folder, new_shortname_root).replace(" ", "_").replace('HQ', 'LQ')
-        
+
         if args.trim_to_gametime:
             if args.fps > 0:
                 command = f'ffmpeg -ss {game_start_secs} -i "{filename}" -vf "scale=456x256,fps={args.fps}" -map 0:v -c:v libx264 -strict experimental "{new_filename}" -y'
             else:
-                command = f'ffmpeg -ss {game_start_secs} -i "{filename}" -vf scale=456x256 -map 0:v -c:v libx264 -c:a aac -strict experimental "{new_filename}"'            
+                command = f'ffmpeg -ss {game_start_secs} -i "{filename}" -vf scale=456x256 -map 0:v -c:v libx264 -c:a aac -strict experimental "{new_filename}"'
         else:
             if args.fps > 0:
                 command = f'ffmpeg -i "{filename}" -vf "scale=456x256,fps={args.fps}" -map 0:v -c:v libx264 "{new_filename}" -y'

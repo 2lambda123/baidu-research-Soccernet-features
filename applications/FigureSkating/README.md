@@ -19,7 +19,7 @@
 
  #### step1 安装openpose
 
- - 参考：https://github.com/CMU-Perceptual-Computing-Lab/openpose  
+ - 参考：https://github.com/CMU-Perceptual-Computing-Lab/openpose
 
  #### step2 测试openpose提供demo
 

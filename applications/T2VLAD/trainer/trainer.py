@@ -107,7 +107,7 @@ class Trainer(BaseTrainer):
                 loss = self.loss(output["cross_view_conf_matrix"])
             else:
                 loss = self.loss(x=output["class_preds"], target=labels)
-            
+
             loss.backward()
             self.optimizer.step()
             self.optimizer.clear_grad()
@@ -184,14 +184,14 @@ class Trainer(BaseTrainer):
                         subsub_sims = []
                         for vid in range(vid_batch):
                             sub_samples['experts'] = {}
-                            sub_samples['ind'] = {} 
+                            sub_samples['ind'] = {}
                             for expert in samples['experts'].keys():
                                 sub_samples['experts'][expert] = samples['experts'][expert][vid*chk:vid*chk+chk]
                                 sub_samples['ind'][expert] = samples['ind'][expert][vid*chk:vid*chk+chk]
                             with ctxt_mgr(sub_samples) as xx:
                                 output = self.model(**xx)
                             subsub_sims.append(output["cross_view_conf_matrix"].cpu())
-                    
+
                         subsub_sims = paddle.concat(subsub_sims, axis=1)
                         sub_sims.append(subsub_sims)
 
@@ -244,7 +244,7 @@ class Trainer(BaseTrainer):
                     if batch_idx % self.log_step == 0:
                         prog = self._progress(batch_idx)
                         self.logger.info(f"Val Epoch: {epoch} {prog}")
-                
+
                 nested_metrics = {}
                 for metric in metrics:
                     if hasattr(metric, "topk"):

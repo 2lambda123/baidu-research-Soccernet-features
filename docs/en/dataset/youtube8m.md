@@ -14,7 +14,7 @@ YouTube-8M is a large-scale video classification data set, containing more than 
 **The length of each video is between 120s and 500s
 Due to the large amount of video data, the image classification model was used to extract frame-level features in advance, and PCA was used to reduce the dimensionality of the features to obtain multi-frame 1024-dimensional features. Similarly, the audio model was used to obtain multi-frame 128-dimensional features. Audio characteristics. **
 > The dataset used here is the updated YouTube-8M data set in 2018 (May 2018 version (current): 6.1M videos, 3862 classes, 3.0 labels/video, 2.6B audio-visual features).
-  
+
 
 ## Download
 1. Create a new directory for storing features (take the PaddleVideo directory as an example)
@@ -50,7 +50,7 @@ Due to the large amount of video data, the image classification model was used t
 
     python3.7 split_yt8m.py train.list # Split each train*.pkl into multiple train*_split*.pkl
     python3.7 split_yt8m.py val.list # Split each validate*.pkl into multiple validate*_split*.pkl
-    
+
     ls pkl_frame/train*_split*.pkl> train.list # Rewrite the path of train*_split*.pkl into train.list
     ls pkl_frame/validate*_split*.pkl> val.list # Rewrite the path of validate*_split*.pkl into val.list
-    ``` 
+    ```

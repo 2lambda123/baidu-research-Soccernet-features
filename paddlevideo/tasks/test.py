@@ -197,7 +197,7 @@ def test_model(cfg, weights, parallel=True):
 
                 if not os.path.exists(cfg.inference_dir):
                     os.makedirs(cfg.inference_dir, exist_ok = True)
-                
+
                 # write images to see hwt images are used for inference
                 # images = np.array(data['imgs'])[0]
                 # images = np.moveaxis(images, [1, 2, 3], [0, 1, 2])

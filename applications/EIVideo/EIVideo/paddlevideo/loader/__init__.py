@@ -18,4 +18,3 @@ from .pipelines.compose import Compose
 __all__ = [
     'build_batch_pipeline','Compose'
 ]
-

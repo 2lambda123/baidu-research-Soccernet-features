@@ -59,4 +59,3 @@ ACTION:
 
     classify_score_thread: 0.1
     iou_score_thread: 0.3
-

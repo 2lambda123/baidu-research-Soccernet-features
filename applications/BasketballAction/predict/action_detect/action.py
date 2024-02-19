@@ -62,7 +62,7 @@ class ActionDetection(object):
                     basename = prop_json.replace('feature_bmn/prop.json', 'mp4')
                     basename = basename + '/' + item['video_name'] + '.mp4'
                     self.prop_dict[basename] = item['bmn_results']
-            
+
 
     @record_time_info
     def load_model(self):
@@ -73,7 +73,7 @@ class ActionDetection(object):
             self.image_model = image_model.InferModel(self.configs)
             if not self.PCM_ONLY:
                 self.audio_model = audio_model.InferModel(self.configs)
-    
+
         if not self.LSTM_ONLY:
             self.prop_model = prop_model.InferModel(self.configs)
 
@@ -93,17 +93,17 @@ class ActionDetection(object):
         self.configs['COMMON']['fps'] = fps
 
         logger.info("==> input video {}".format(os.path.basename(self.imgs_path)))
-    
+
         # step 1: extract feature
         video_features = self.extract_feature()
-    
+
         # step2: get proposal
         bmn_results = self.extract_proposal(video_features)
-         
-        # step3: classify 
+
+        # step3: classify
         material = {'feature': video_features, 'proposal': bmn_results}
         action_results = self.video_classify(material)
-        
+
         return bmn_results, action_results
 
     @record_time_info
@@ -111,7 +111,7 @@ class ActionDetection(object):
         """video classify"""
         if self.BMN_ONLY:
             return []
-        action_results = self.classify_model.predict(self.configs, material=material) 
+        action_results = self.classify_model.predict(self.configs, material=material)
         logger.info('action shape {}'.format(np.array(action_results).shape))
         return action_results
 
@@ -172,4 +172,3 @@ if __name__ == '__main__':
     with open('results.json', 'w', encoding='utf-8') as f:
        data = json.dumps(results, indent=4, ensure_ascii=False)
        f.write(data)
-

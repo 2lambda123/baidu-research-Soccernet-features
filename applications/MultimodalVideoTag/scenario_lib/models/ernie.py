@@ -75,7 +75,7 @@ class ErnieConfig(object):
 
 class ErnieModel(object):
     """
-    ERINE Model 
+    ERINE Model
     """
     def __init__(self,
                  src_ids,
@@ -135,7 +135,7 @@ class ErnieModel(object):
             param_attr=fluid.ParamAttr(
                 name=self._word_emb_name, initializer=self._param_initializer),
             is_sparse=False)
-        
+
         position_emb_out = fluid.layers.embedding(
             input=position_ids,
             size=[self._max_position_seq_len, self._emb_size],
@@ -208,14 +208,14 @@ class ErnieModel(object):
         get sequence output
         """
         return self._enc_out
-    
+
     def get_sequence_textcnn_output(self, sequence_feature, input_mask):
         """
         get sequence output
         """
         seq_len = fluid.layers.reduce_sum(input_mask, dim=[1, 2])
         seq_len = fluid.layers.cast(seq_len, 'int64')
-        sequence_feature = fluid.layers.sequence_unpad(sequence_feature, seq_len) 
+        sequence_feature = fluid.layers.sequence_unpad(sequence_feature, seq_len)
 
         return self.textcnn(sequence_feature)
 
@@ -231,7 +231,7 @@ class ErnieModel(object):
                 name="pooled_fc.w_0", initializer=self._param_initializer),
             bias_attr="pooled_fc.b_0")
         return next_sent_feat
-    
+
     def textcnn(self, feature, name='text_cnn'):
         """
         TextCNN sequence feature extraction
@@ -247,4 +247,4 @@ class ErnieModel(object):
                                                    pool_type="max")
             convs.append(conv_h)
         convs_out = fluid.layers.concat(input=convs, axis=1)
-        return convs_out 
+        return convs_out

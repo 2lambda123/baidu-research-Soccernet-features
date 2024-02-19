@@ -36,7 +36,7 @@ def load_gts():
                 basename = '{}/{}/mp4/{}'.format(dataset, eval_data, os.path.basename(gt['url']))
                 gts_data['gts'][basename] = gt
     return gts_data['gts']
-    
+
 
 def computeIoU(e1, e2):
     """
@@ -83,7 +83,7 @@ def convert_classify(boxes, basename, iou_threshold, score_threshold):
                     'end': convert_time_to_frame(box['end_time']),
                     'label': box['label_id']})
     return res
-        
+
 def convert_groundtruth(boxes, basename, phase=None):
     res = []
     for box in boxes:
@@ -127,7 +127,7 @@ def evaluation(res_boxes, gts_boxes, label_range, iou_range, show_sub = False):
     for iou_threshold in iou_range:
         if show_sub:
             print_head(iou_threshold)
-            
+
         iou_prop = np.array([k >= iou_threshold for k in hit_map_prop_total])
         average_results = {}
         for label_id in label_range:
@@ -195,18 +195,18 @@ def get_eval_results(predicts, gts_data, phase, iou_threshold = 0.3, score_thres
             gts_boxes.extend(convert_groundtruth(gts, basename))
             label_range = range(1, len(label_index))
             iou_range = np.arange(0.5, 0.6, 0.1)
-            
+
     eval_results = evaluation(res_boxes, gts_boxes, label_range, iou_range, show_sub = show_sub)
-     
+
     return eval_results
-    
+
 
 if __name__ == "__main__":
     result_file = sys.argv[1]
     predicts = json.load(open(result_file, 'r', encoding='utf-8'))
     gts_data = load_gts()
 
-    get_eval_results(predicts, gts_data, 'proposal', 
+    get_eval_results(predicts, gts_data, 'proposal',
                      score_threshold = 0.03,
                      show_sub = True)
     #get_eval_results(predicts, gts_data, 'actions')
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     best_score_threshold = 0.
     for iou_threshold in np.arange(0.1, 0.9, 0.1):
         for score_threshold in np.arange(0.1, 1, 0.1):
-            avg_res = get_eval_results(predicts, gts_data, 'actions', 
+            avg_res = get_eval_results(predicts, gts_data, 'actions',
                                        iou_threshold = iou_threshold,
                                        score_threshold = score_threshold,
                                        show_sub = False)
@@ -235,5 +235,4 @@ if __name__ == "__main__":
     get_eval_results(predicts, gts_data, 'actions', iou_threshold = best_iou_threshold,
                                                     score_threshold = best_score_threshold,
                                                     show_sub = True)
-    
 
