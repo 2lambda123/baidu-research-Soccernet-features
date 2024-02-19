@@ -1,5 +1,5 @@
 """
-# @File  : bmninf_reader.py  
+# @File  : bmninf_reader.py
 # @Author: macaihong
 # @Date  : 2019/12/15
 # @Desc  :
@@ -113,7 +113,7 @@ class BMNINFReader(DataReader):
         self.anchor_xmin = [self.tgap * i for i in range(self.tscale)]
         self.anchor_xmax = [self.tgap * i for i in range(1, self.tscale + 1)]
 
-    
+
     def load_file(self, video_wind):
         """
         load_file

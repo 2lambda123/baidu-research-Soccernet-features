@@ -21,4 +21,3 @@ class Logger(logging.Logger):
         formatter = logging.Formatter(format, datefmt)
         handler.setFormatter(formatter)
         self.addHandler(handler)
-

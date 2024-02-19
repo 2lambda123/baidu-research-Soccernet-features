@@ -437,7 +437,7 @@ class EventSampler(object):
         random_offset_thresh_away_from_event = 0.0
         # This controls how much away from the boundary can the event be
         random_offset =  np.random.uniform(
-            low = -self.sample_length_secs / 2 + random_offset_thresh_away_from_event, 
+            low = -self.sample_length_secs / 2 + random_offset_thresh_away_from_event,
             high = self.sample_length_secs / 2 - random_offset_thresh_away_from_event)
 
         if self.valid_mode:

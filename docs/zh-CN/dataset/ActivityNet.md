@@ -76,5 +76,3 @@ ActivityNet是一个用于大规模视频理解任务的数据集，可用于动
     ```
 
 3. 最后修改配置文件configs/localization/bmn.yaml中的`feat_path`字段指定特征文件夹路径，通过`file_path`字段指定标签文件路径。
-
-

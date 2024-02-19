@@ -204,7 +204,7 @@ def train(args):
     compiled_valid_prog = fluid.compiler.CompiledProgram(
         valid_prog).with_data_parallel(share_vars_from=compiled_train_prog,
                                        build_strategy=build_strategy)
-    
+
     # get reader
     bs_denominator = 1
     if (not args.no_use_pyreader) and args.use_gpu:

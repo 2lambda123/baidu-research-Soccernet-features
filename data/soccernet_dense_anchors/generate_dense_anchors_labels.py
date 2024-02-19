@@ -84,7 +84,7 @@ def main(args):
     with open(annotation_file, "w") as annotation_file:
         for item in list_of_dict_all:
             annotation_file.write(json.dumps(item) + '\n')
-            
+
                 # if len(data['annotations']) == 1:
                 #     annotation_file.write('{} {}\n'.format(data['path'], dict_labels[data["annotations"][0]["label"]]))
                 # elif len(data['annotations']) == 0:

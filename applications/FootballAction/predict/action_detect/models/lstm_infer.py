@@ -19,7 +19,7 @@ from paddle.inference import create_predictor
 
 class InferModel(object):
     """lstm infer"""
-    def __init__(self, cfg, name='ACTION'): 
+    def __init__(self, cfg, name='ACTION'):
         name = name.upper()
         self.name           = name
         model_file          = cfg[name]['model_file']
@@ -97,7 +97,7 @@ class InferModel(object):
             output1, output2 = self.infer(input1_arr, input1_lod, input2_arr, input2_lod)
             # output1, output2 = self.infer(input1_arr, input1_lod)
 
-            predictions_id = output1 
+            predictions_id = output1
             predictions_iou = output2
             for i in range(len(predictions_id)):
                 topk_inds = predictions_id[i].argsort()[0 - self.topk:]
@@ -106,14 +106,14 @@ class InferModel(object):
                 preds_iou = predictions_iou[i][0]
                 results.append((video_id[i], preds_id.tolist(), topk_inds.tolist(), preds_iou.tolist()))
 
-        predict_result = get_action_result(results, self.label_map_file, self.fps, 
-                                           self.cls_thread, self.iou_thread, 
+        predict_result = get_action_result(results, self.label_map_file, self.fps,
+                                           self.cls_thread, self.iou_thread,
                                            self.nms_id, self.nms_thread, self.frame_offset)
         return predict_result
 
 
 if __name__ == "__main__":
-    cfg_file = '/home/work/inference/configs/configs.yaml' 
+    cfg_file = '/home/work/inference/configs/configs.yaml'
     cfg = parse_config(cfg_file)
     model = InferModel(cfg)
 
@@ -147,6 +147,6 @@ if __name__ == "__main__":
     results = {'actions': outputs}
     with open('results.json', 'w', encoding='utf-8') as f:
        data = json.dumps(results, indent=4, ensure_ascii=False)
-       f.write(data) 
+       f.write(data)
 
     print('cost time = {} min'.format((t1 - t0) / 60.0))

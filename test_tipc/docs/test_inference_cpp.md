@@ -92,4 +92,4 @@ ValueError: The results of cpp_infer_cpu_usemkldnn_True_threads_1_precision_fp32
 
 ## 3. 更多教程
 
-本文档为功能测试用，更详细的C++预测使用教程请参考：[服务器端C++预测](../../deploy/cpp_infer/readme.md)  
+本文档为功能测试用，更详细的C++预测使用教程请参考：[服务器端C++预测](../../deploy/cpp_infer/readme.md)

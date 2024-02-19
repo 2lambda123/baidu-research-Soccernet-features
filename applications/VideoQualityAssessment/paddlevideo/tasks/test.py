@@ -67,14 +67,13 @@ def test_model(cfg, weights, parallel=True):
     cfg.METRIC.batch_size = batch_size
 
     Metric = build_metric(cfg.METRIC)
-    
+
     for batch_id, data in enumerate(data_loader):
         if parallel:
             outputs = model._layers.test_step(data)
         else:
             outputs = model.test_step(data)
         Metric.update(batch_id, data, outputs)
-    
+
     Metric.accumulate()
-    
 

@@ -71,7 +71,7 @@ class RecognizerTransformerDenseAnchors(BaseRecognizer):
         #     cls_score.append(self.forward_net(view))
         # cls_score = self._average_view(cls_score,
         #                                self.runtime_cfg.test.avg_type)
-        
+
         imgs = data_batch['imgs']
         result = self.forward_net(imgs)
         return result

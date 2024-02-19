@@ -192,7 +192,7 @@ cd datasets/script && python get_instance_for_bmn.py
 ```
    |--  datasets                   # 训练数据集和处理脚本
         |--  basketball            # xx数据集
-            |--  input_for_bmn     # bmn训练的proposal         
+            |--  input_for_bmn     # bmn训练的proposal
 ```
 
 #### step2.2  BMN模型训练

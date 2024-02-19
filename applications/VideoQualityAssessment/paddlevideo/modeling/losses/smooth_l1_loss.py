@@ -32,8 +32,8 @@ class SmoothL1Loss(BaseWeightedLoss):
         Returns:
             loss (paddle.Tensor): The returned smooth L1 Loss.
         """
-        
+
         labels = labels.astype(score.dtype)
         loss = F.smooth_l1_loss(score, labels)
-        
+
         return loss

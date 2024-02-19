@@ -56,8 +56,8 @@ class Compose(object):
                     temp_dict = dict(name=list(t.keys())[0])
                     for all_sub_t in t.values():
                         if all_sub_t is not None:
-                            temp_dict.update(all_sub_t) 
-      
+                            temp_dict.update(all_sub_t)
+
                     t = build(temp_dict, PIPELINES)
                     self.pipelines.append(t)
             elif callable(p):

@@ -58,7 +58,7 @@ def build_optimizer(cfg, lr_scheduler, parameter_list=None):
         optimizer (paddle.optimizer): paddle optimizer.
 
     """
-    
+
 
     cfg_copy = cfg.copy()
     #XXX check none and illegal cfg!!!

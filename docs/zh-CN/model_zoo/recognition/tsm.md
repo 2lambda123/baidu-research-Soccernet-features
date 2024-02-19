@@ -228,4 +228,3 @@ python3.7 tools/predict.py --input_file data/example.avi \
 ## 参考论文
 
 - [TSM: Temporal Shift Module for Efficient Video Understanding](https://arxiv.org/pdf/1811.08383.pdf), Ji Lin, Chuang Gan, Song Han
-

@@ -70,5 +70,3 @@ use scripts:
 ```bash
 ppvideo --model_name='ppTSM_v2' --use_gpu=False --video_file='data/example.avi'
 ```
-
-

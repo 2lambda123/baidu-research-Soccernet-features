@@ -85,9 +85,9 @@ optim = paddle.optimizer.Adam(parameters=model.parameters())
 epochs = 5
 for epoch in range(epochs):
     for batch_id, data in enumerate(train_loader()):
-        x_data = data[0]  
-        y_data = data[1]  
-        predicts = model(x_data)  
+        x_data = data[0]
+        y_data = data[1]
+        predicts = model(x_data)
 
         ## 2.3 网络Loss
         loss = paddle.nn.functional.cross_entropy(predicts, y_data)
@@ -150,12 +150,12 @@ class MyDataset:
 
     def prepare_train(self, idx):
         results = copy.deepcopy(self.info[idx])
-        results = self.pipeline(results) # train pipeline  
+        results = self.pipeline(results) # train pipeline
         return results['image'], results['labels'] #return your data item
 
     def prepare_test(self, idx):
         results = copy.deepcopy(self.info[idx])
-        results = self.pipeline(results) # test pipeline  
+        results = self.pipeline(results) # test pipeline
         return results['image'], results['labels'] #return your data item
 ```
 
@@ -194,7 +194,7 @@ PaddleVideo内置了大量视频编解码及图像变换相关模块，对于没
 
 ```python
 @PIPELINES.register()  # 通过装饰器，自动进行注册
-class MyPipeline:  
+class MyPipeline:
     def __init__(self, *args, **kwargs):
         # your init code
         pass
@@ -268,7 +268,7 @@ class MyBackbone(nn.Layer):
 ```yaml
 MODEL:
     framework: "Recognizer2D"    # Framework class name
-    backbone:  
+    backbone:
         name: "ResNetTweaksTSM"  # Backbone class name
         depth: 50                # init args
     head:
@@ -289,7 +289,7 @@ MODEL:
 OPTIMIZER:
     name: 'Momentum'                        # Optimizer class name
     momentum: 0.9                           # init args
-    learning_rate:  
+    learning_rate:
         name: 'PiecewiseDecay'              # Learning rate scheduler class name
         boundaries: [10, 20]                # init args
         values: [0.001, 0.0001, 0.00001]    # init args
@@ -411,4 +411,3 @@ python3.7 main.py --test -c config_path/your_config.yaml -w weight_path/your_wei
 - `--test`参数指定运行测试模式
 - `-c`参数指定配置文件
 - `-w`参数指定训练好的权重保存路径
-

@@ -65,7 +65,7 @@ class FrameRecDataset(BaseDataset):
             for line in fin:
                 line_split = line.strip().split()
                 mp4_path, frame_dir, frames_len, labels = line_split
-                
+
                 if self.data_prefix is not None:
                     frame_dir = osp.join(self.data_prefix, frame_dir)
                 info.append(

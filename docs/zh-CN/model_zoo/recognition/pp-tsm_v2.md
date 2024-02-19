@@ -138,7 +138,7 @@ PP-TSMv2沿用了部分PP-TSM的优化策略，从骨干网络与预训练模型
         ret = cap.grab()
         # maybe first frame is empty
         if ret == False:
-            continue  
+            continue
         if frames_idx and i == frames_idx[0]:
             frames_idx.pop(0)
             ret, frame = cap.retrieve()

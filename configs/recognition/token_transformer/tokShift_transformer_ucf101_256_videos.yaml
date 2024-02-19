@@ -16,11 +16,11 @@ MODEL: #MODEL field
         num_seg: 8
         attention_type: 'space_only'
     head:
-        name: "TokenShiftHead" #Mandatory, indicate the type of head, associate to the 'paddlevideo/ 
+        name: "TokenShiftHead" #Mandatory, indicate the type of head, associate to the 'paddlevideo/
         num_classes: 101 #Optional, the number of classes to be classified.
         in_channels: 768 #input channel of the extracted feature.
         ls_eps: 0.01
-        std: 0.02 #std value in params initializationn    
+        std: 0.02 #std value in params initializationn
     runtime_cfg: # configuration used when the model is train or test.
         test: # test config
             num_seg: 8

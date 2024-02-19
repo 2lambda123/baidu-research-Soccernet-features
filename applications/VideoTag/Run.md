@@ -51,7 +51,7 @@
 video_tag
   ├──weights
     ├── attention_lstm.pdmodel
-    ├── attention_lstm.pdopt  
+    ├── attention_lstm.pdopt
     ├── attention_lstm.pdparams
     ├── tsn.pdmodel
     ├── tsn.pdopt

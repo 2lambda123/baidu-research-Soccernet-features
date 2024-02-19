@@ -56,9 +56,9 @@ class MaxIoUAssignerAVA():
         self.gpu_assign_thr = gpu_assign_thr
         self.match_low_quality = match_low_quality
 
-    def assign(self, 
-               bboxes, 
-               gt_bboxes, 
+    def assign(self,
+               bboxes,
+               gt_bboxes,
                gt_labels=None):
         """Assign gt to bboxes.  """
         overlaps = bbox_overlaps(gt_bboxes, bboxes)
@@ -76,7 +76,7 @@ class MaxIoUAssignerAVA():
         max_overlaps, argmax_overlaps = paddle.topk(overlaps, k=1, axis=0)
         # for each gt, which anchor best overlaps with it
         # for each gt, the max iou of all proposals
-        gt_max_overlaps, gt_argmax_overlaps = paddle.topk(overlaps, k=1, axis=1) 
+        gt_max_overlaps, gt_argmax_overlaps = paddle.topk(overlaps, k=1, axis=1)
 
         # 2. assign negative: below the negative inds are set to be 0
         match_labels = paddle.full(argmax_overlaps.shape, -1, dtype='int32')
@@ -134,9 +134,9 @@ class MaxIoUAssignerAVA():
                 else:
                     T = paddle.where(A>0, X, Y)
                 S = paddle.index_select(gt_labels, T)
-                AE = paddle.expand(A, [S.shape[1], A.shape[0]]) 
+                AE = paddle.expand(A, [S.shape[1], A.shape[0]])
                 AET = paddle.transpose(AE, perm=[1, 0])
-                R = paddle.where(AET>0, S, assigned_labels) 
+                R = paddle.where(AET>0, S, assigned_labels)
                 assigned_labels = R
         else:
             assigned_labels = None

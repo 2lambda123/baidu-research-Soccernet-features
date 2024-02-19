@@ -28,7 +28,7 @@ class RecognizerTransformerFeaturesInference(BaseRecognizer):
             feature = self.backbone(imgs)
         else:
             feature = imgs
-        
+
         return feature.squeeze()
 
     def test_step(self, data_batch):
@@ -36,4 +36,4 @@ class RecognizerTransformerFeaturesInference(BaseRecognizer):
         imgs = data_batch[0]
         labels = data_batch[1:]
         feature = self.forward_net(imgs)
-        return feature 
+        return feature

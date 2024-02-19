@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import paddle 
+import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
 import numpy as np
@@ -124,10 +124,10 @@ class BBoxHeadAVA(nn.Layer):
         """Generate classification targets for bboxes.  """
         labels, label_weights = [], []
         pos_weight = 1.0 if pos_weight <= 0 else pos_weight
-    
+
         assert len(pos_bboxes_list) == len(neg_bboxes_list) == len(gt_labels)
         length = len(pos_bboxes_list)
-    
+
         for i in range(length):
             pos_bboxes = pos_bboxes_list[i]
             neg_bboxes = neg_bboxes_list[i]
@@ -141,22 +141,22 @@ class BBoxHeadAVA(nn.Layer):
             neg_label = paddle.zeros([num_neg, gt_label.shape[1]])
             label = paddle.concat([gt_label,neg_label])
             labels.append(label)
-    
+
         labels = paddle.concat(labels, 0)
         return labels
 
     def recall_prec(self, pred_vec, target_vec):
         correct = paddle.to_tensor(np.logical_and(pred_vec.numpy(), target_vec.numpy()))
-        correct = paddle.where(correct, 
+        correct = paddle.where(correct,
                                     paddle.full(correct.shape,1,dtype='int32'),
                                     paddle.full(correct.shape,0,dtype='int32'))
         recall_correct = paddle.cast(paddle.sum(correct, axis=1), 'float32')
-        target_vec = paddle.where(target_vec, 
+        target_vec = paddle.where(target_vec,
                                     paddle.full(target_vec.shape,1,dtype='int32'),
                                     paddle.full(target_vec.shape,0,dtype='int32'))
         recall_target = paddle.cast(paddle.sum(target_vec, axis=1),'float32')
         recall = recall_correct / recall_target
-        pred_vec = paddle.where(pred_vec, 
+        pred_vec = paddle.where(pred_vec,
                                     paddle.full(pred_vec.shape,1,dtype='int32'),
                                     paddle.full(pred_vec.shape,0,dtype='int32'))
         prec_target = paddle.cast(paddle.sum(pred_vec, axis=1) + 1e-6, 'float32')
@@ -176,7 +176,7 @@ class BBoxHeadAVA(nn.Layer):
             pred_vec = paddle.full(pred.shape,0,dtype='bool')
             num_sample = pred.shape[0]
             for i in range(num_sample):
-                pred_vec[i, pred_label[i].numpy()] = 1  
+                pred_vec[i, pred_label[i].numpy()] = 1
             recall_k, prec_k = self.recall_prec(pred_vec, target_vec)
             recalls.append(recall_k)
             precs.append(prec_k)
@@ -195,7 +195,7 @@ class BBoxHeadAVA(nn.Layer):
                                     paddle.full([labels.shape[0]],0,dtype='int32'))
             pos_inds = paddle.nonzero(pos_inds, as_tuple=False)
             cls_score = paddle.index_select(cls_score, pos_inds, axis=0)
-            cls_score = cls_score[:, 1:] 
+            cls_score = cls_score[:, 1:]
             labels = paddle.index_select(labels, pos_inds, axis=0)
             bce_loss = F.binary_cross_entropy_with_logits
             loss = bce_loss(cls_score, labels, reduction='none')

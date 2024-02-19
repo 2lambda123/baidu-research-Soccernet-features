@@ -282,7 +282,7 @@ cd FootballAction/datasets/script && python get_instance_for_bmn.py
         |--  EuroCup2016            # 数据集
             |--  input_for_bmn     # bmn训练的proposal
                 |--  feature
-                |--  label.json  
+                |--  label.json
 ```
 
 特征文件保存在`label.json`文件中，数据格式如下：

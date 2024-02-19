@@ -2,7 +2,7 @@
 
 # Preface
 
-This repo contains code to run feature inference and finetune backbone models on the [Soccernet](https://www.soccer-net.org/home) dataset. The Soccernet features are used in down-stream tasks, in particular event spotting and replay grounding. The winning solutions for the CVPR 2021 and 2022 ActivityNet Challange, Temporal Localization track, used features from this [Soccernet Baidu Features repo](https://github.com/baidu-research/vidpress-sports). This repo makes a single model based on TimeSFormer fully opensource with pretrained weights available to run inference or train on any video. 
+This repo contains code to run feature inference and finetune backbone models on the [Soccernet](https://www.soccer-net.org/home) dataset. The Soccernet features are used in down-stream tasks, in particular event spotting and replay grounding. The winning solutions for the CVPR 2021 and 2022 ActivityNet Challange, Temporal Localization track, used features from this [Soccernet Baidu Features repo](https://github.com/baidu-research/vidpress-sports). This repo makes a single model based on TimeSFormer fully opensource with pretrained weights available to run inference or train on any video.
 
 # Feature inference
 
@@ -22,9 +22,9 @@ A config file for the video file in the follow format needs to be constructed an
         "length_secs": 3196
     }
 
-Download weight file and set the filename to be WEIGHT_FILE. 
-    
-- [Microsoft OneDrive](https://1drv.ms/u/s!AruitsssaVf8edpJuWH1a1KCLCc?e=xkgpdn) 
+Download weight file and set the filename to be WEIGHT_FILE.
+
+- [Microsoft OneDrive](https://1drv.ms/u/s!AruitsssaVf8edpJuWH1a1KCLCc?e=xkgpdn)
 - [Baidu Pan](https://pan.baidu.com/s/10b5pdwwxNXezWg6-_z3YwA?pwd=segt)
 
 Set enviroment variables LOG_DIR to save logs. The test config do not need to be changed. Set INFERENCE_DIR. This is where the features.npy containing the weights will be saved.
@@ -203,8 +203,8 @@ INFERENCE_DIR_ROOT=/mnt/storage/gait-0/xin/soccernet_features_4_ppTimeSformer
 INFERENCE_DIR_ROOT=/mnt/storage/gait-0/xin/soccernet_features_5_ppTimeSformer_balanced
 
 
-for FILE in /mnt/storage/gait-0/xin/dataset/soccernet_456x256_inference_json_lists_5fps/*; 
-do 
+for FILE in /mnt/storage/gait-0/xin/dataset/soccernet_456x256_inference_json_lists_5fps/*;
+do
 line=`basename "$FILE" .mkv`
 INFERENCE_JSON_CONFIG=$CONFIG_DIR/$line.mkv
 INFERENCE_DIR=$INFERENCE_DIR_ROOT/$line

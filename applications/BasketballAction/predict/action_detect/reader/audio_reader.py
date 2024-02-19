@@ -65,7 +65,7 @@ class AudioReader(DataReader):
             """reader"""
             batch_out = []
             batch_out_pre = []
-        
+
             for audio in examples:
                 # batch_out.append([audio])
                 batch_out.append(audio)
@@ -74,5 +74,5 @@ class AudioReader(DataReader):
                     batch_out = []
             if len(batch_out) > 0:
                 yield batch_out
-            
+
         return reader

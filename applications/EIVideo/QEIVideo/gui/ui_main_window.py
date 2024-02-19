@@ -165,5 +165,3 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "Stop"))
         self.pushButton_4.setText(_translate("MainWindow", "Add"))
         self.label.setText(_translate("MainWindow", "Hi, This is EIVideo"))
-
-

@@ -151,7 +151,7 @@ else:
     def key_func(x):
         return x.split('/')[-1]
 
-video_dict = get_list(frame_dir, key_func=key_func, level=level)  
+video_dict = get_list(frame_dir, key_func=key_func, level=level)
 print("number:",len(video_dict))
 
 fight_splits(video_dict, train_percent)
@@ -246,4 +246,3 @@ python tools/export_model.py -c pptsm_fight_frames_dense.yaml \
                                 -p ppTSM_fight_best.pdparams \
                                 -o inference/ppTSM
 ```
-

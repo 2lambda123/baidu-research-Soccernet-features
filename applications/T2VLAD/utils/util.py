@@ -72,7 +72,7 @@ def expert_tensor_storage(experts, feat_aggregation):
     for expert, config in feat_aggregation.items():
         if config["temporal"] in {"vlad",  "fixed_seg"}:
             expert_storage["variable"].add(expert)
-        elif config["temporal"] in {"avg", "max", "avg-max", "max-avg", "avg-max-ent", 
+        elif config["temporal"] in {"avg", "max", "avg-max", "max-avg", "avg-max-ent",
                                     "max-avg-ent"}:
             expert_storage["fixed"].add(expert)
         else:

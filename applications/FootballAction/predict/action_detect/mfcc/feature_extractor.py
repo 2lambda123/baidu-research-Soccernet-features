@@ -179,4 +179,4 @@ if __name__ == "__main__":
         pcm_data = f.read()
     audio_data = np.fromstring(pcm_data, dtype = np.int16)
     examples_batch = wav_to_example(audio_data, 16000)
-    print("examples_batch.shape", examples_batch.shape)   
+    print("examples_batch.shape", examples_batch.shape)

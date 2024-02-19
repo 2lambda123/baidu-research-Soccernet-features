@@ -33,4 +33,3 @@ def get_images(image_path):
     images = images
     images_path_list = [image_path + '/' + im for im in images]
     return images_path_list
-

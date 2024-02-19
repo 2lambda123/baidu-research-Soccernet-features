@@ -32,7 +32,7 @@ class L1Loss(BaseWeightedLoss):
         Returns:
             loss (paddle.Tensor): The returned L1 loss.
         """
-        
+
         labels = labels.astype(score.dtype)
         loss = F.l1_loss(score, labels)
         return loss

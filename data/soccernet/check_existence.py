@@ -7,7 +7,7 @@ commands = {}
 with open(script_file, 'r') as f:
     script_lines = f.readlines()
     for script_line in script_lines:
-        key = script_line.split()[-1].replace('"','')  
+        key = script_line.split()[-1].replace('"','')
         commands[key] = script_line
 
 with open(filename, 'r') as f:

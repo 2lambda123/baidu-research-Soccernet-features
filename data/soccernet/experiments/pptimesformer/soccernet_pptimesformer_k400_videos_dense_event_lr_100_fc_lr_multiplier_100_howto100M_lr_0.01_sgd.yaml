@@ -148,11 +148,11 @@ OPTIMIZER: #OPTIMIZER field
         name: 'CustomWarmupPiecewiseDecay'
         warmup_epochs: 2
         warmup_start_lr: 0.001
-        step_base_lr: 0.01 
+        step_base_lr: 0.01
         lrs: [0.1, 0.001, 0.0001, 0.00001]
         gamma: 0.1
         steps: [0, 15, 30]
-        max_epoch: 30 
+        max_epoch: 30
     weight_decay:
         name: 'L2'
         value: 1e-5

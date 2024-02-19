@@ -23,13 +23,13 @@ class SamplingResult():
         self.pos_inds = pos_inds
         self.neg_inds = neg_inds
         self.pos_bboxes = paddle.index_select(bboxes,pos_inds)
-        
+
         # neg_inds may be empty
         if neg_inds.shape[0]!=0:
             self.neg_bboxes = paddle.index_select(bboxes,neg_inds)
         else:
             self.neg_bboxes=None
-        
+
         self.pos_is_gt  = paddle.index_select(gt_flags,pos_inds)
         self.num_gts = gt_bboxes.shape[0]
         self.pos_assigned_gt_inds = paddle.index_select(assign_result.gt_inds,pos_inds) - 1
@@ -71,7 +71,7 @@ class RandomSampler():
         self.pos_fraction = pos_fraction
         self.neg_pos_ub = neg_pos_ub
         self.add_gt_as_proposals = add_gt_as_proposals
- 
+
     def sample(self,
                assign_result,
                bboxes,
@@ -116,7 +116,7 @@ class RandomSampler():
         assert len(gallery) >= num
 
         perm = paddle.arange(gallery.numel())[:num]
-        perm = paddle.randperm(gallery.numel())[:num] 
+        perm = paddle.randperm(gallery.numel())[:num]
         rand_inds = paddle.index_select(gallery, perm)
         return rand_inds
 
@@ -129,7 +129,7 @@ class RandomSampler():
         # 当pos_inds的数目小于num_expected(想要的sample的最大数目), 就直接用这个pos_inds
         # 反之就从这么多index里随机采样num_expected个出来
         if pos_inds.numel().numpy()[0] != 0:
-            pos_inds = pos_inds.squeeze() 
+            pos_inds = pos_inds.squeeze()
         if pos_inds.numel().numpy()[0] <= num_expected:
             return pos_inds
         else:
@@ -139,7 +139,7 @@ class RandomSampler():
         """Randomly sample some negative samples."""
         neg_inds = paddle.nonzero(assign_result.gt_inds == 0, as_tuple=False)
         if neg_inds.numel().numpy()[0] != 0:
-            neg_inds = neg_inds.squeeze() 
+            neg_inds = neg_inds.squeeze()
         if (neg_inds.numel().numpy()[0]) <= num_expected.numpy()[0]:
             return neg_inds
         else:

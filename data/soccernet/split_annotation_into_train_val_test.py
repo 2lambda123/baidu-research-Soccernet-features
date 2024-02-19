@@ -7,7 +7,7 @@ import json
 def main(args):
     train_val_test_path = args.splits_folder
     train_val_test_files = glob.glob(train_val_test_path + '/*.npy')
-    
+
     train_set = set()
     val_set = set()
     test_set = set()
@@ -16,7 +16,7 @@ def main(args):
         video_prefix = '.'.join(relative_path.split('/'))
         video_prefix = video_prefix.replace(' ', '_')
         return video_prefix
-    
+
     def video_name_to_key(video_name):
         return video_name.split('/')[-1].split('_HQ')[0][:-2]
 

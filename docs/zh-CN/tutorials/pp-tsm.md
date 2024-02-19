@@ -1,27 +1,27 @@
-# PP-TSM高效实用视频识别模型  
+# PP-TSM高效实用视频识别模型
 
-PP-TSM是PaddleVideo基于TSM优化和改进的视频模型，  
-其精度(UCF101和Kinetics400数据集top1)和推理速度均优于TSM论文及其他开源的TSM模型5%，3%以上，  
-要求使用PaddlePaddle2.0(可使用pip安装) 或适当的develop版本。  
+PP-TSM是PaddleVideo基于TSM优化和改进的视频模型，
+其精度(UCF101和Kinetics400数据集top1)和推理速度均优于TSM论文及其他开源的TSM模型5%，3%以上，
+要求使用PaddlePaddle2.0(可使用pip安装) 或适当的develop版本。
 
-在仅用ImageNet pretrain情况下，PP-TSM在UCF101和Kinetics400数据集top1分别达到89.5%和73.5%，  
+在仅用ImageNet pretrain情况下，PP-TSM在UCF101和Kinetics400数据集top1分别达到89.5%和73.5%，
 在单卡V100上FP32推理速度为147 VPS （基于Kinectics400数据集）.
 在单卡V100上开启TensorRT下FP16推理速度为TODO。
 
-pp-TSM在Kinetics400上top1精度为73.5%，是至今为止开源的2D视频模型中在相同条件下的最高性能。  
+pp-TSM在Kinetics400上top1精度为73.5%，是至今为止开源的2D视频模型中在相同条件下的最高性能。
 
-PP-TSM从如下方面优化和提升TSM模型的精度和速度：  
-1、基于知识蒸馏的预训练模型  ， +1.3%  
-2、网络结构微调  ，+2.5%  
-3、更优的batch size ，+0.2%   
-4、更优的L2正则化  ，+0.3%  
-5、label_smoothing  ，+0.2%  
-6、更优的lr decay  ，+0.15%  
-7、数据增广  ，+0.3%  
-8、更优的epoch num  ，+0.15%  
-9、bn策略  ，+0.4%  
-10、集成PaddleInference进行预测推理  
-11、知识蒸馏、优化器等更多TODO策略    
+PP-TSM从如下方面优化和提升TSM模型的精度和速度：
+1、基于知识蒸馏的预训练模型  ， +1.3%
+2、网络结构微调  ，+2.5%
+3、更优的batch size ，+0.2%
+4、更优的L2正则化  ，+0.3%
+5、label_smoothing  ，+0.2%
+6、更优的lr decay  ，+0.15%
+7、数据增广  ，+0.3%
+8、更优的epoch num  ，+0.15%
+9、bn策略  ，+0.4%
+10、集成PaddleInference进行预测推理
+11、知识蒸馏、优化器等更多TODO策略
 其中，每项策略的精度提升指标参考上述数据（基于ucf101及k400上进行实验）。
 
 ## preciseBN
@@ -41,5 +41,3 @@ PP-TSM从如下方面优化和提升TSM模型的精度和速度：
 这就是preciseBN的计算方法。具体实现参考[preciseBN](https://github.com/PaddlePaddle/PaddleVideo/blob/main/paddlevideo/utils/precise_bn.py)。
 
 实际使用时，由于迭代所有训练样本比较耗费时间，一般只会跑200个iter左右。
-
-

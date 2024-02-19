@@ -16,16 +16,16 @@ StNet: Local and Global Spatial-Temporal Modeling for Human Action Recognition, 
 Attention Cluster: Purely Attention Based Local Feature Integration for Video Classification
 NeXtVLAD: An Efficient Neural Network to Aggregate Frame-level Features for Large-scale Video Classification
 C-TCN: Action localization Model by Baidu, the Champion model of ActivityNet 2018
-Neural Graph Matching Networks for Fewshot 3D Action Recognition - M. Guo et al., ECCV2018.  
-Temporal 3D ConvNets using Temporal Transition Layer - A. Diba et al., CVPRW2018.  
-Temporal 3D ConvNets: New Architecture and Transfer Learning for Video Classification - A. Diba et al., arXiv2017.  
-Attentional Pooling for Action Recognition - R. Girdhar and D. Ramanan, NIPS2017.  
-Fully Context-Aware Video Prediction - Byeon et al, arXiv2017.  
-Hidden Two-Stream Convolutional Networks for Action Recognition - Y. Zhu et al, arXiv2017.  
-Dynamic Image Networks for Action Recognition - H. Bilen et al, CVPR2016.   
-Long-term Recurrent Convolutional Networks for Visual Recognition and Description - J. Donahue et al, CVPR2015.  
-Describing Videos by Exploiting Temporal Structure - L. Yao et al, ICCV2015. 
-Real-time Action Recognition with Enhanced Motion Vector CNNs - B. Zhang et al, CVPR2016.  
-Action Recognition with Trajectory-Pooled Deep-Convolutional Descriptors - L. Wang et al, CVPR2015. 
-    
-  
+Neural Graph Matching Networks for Fewshot 3D Action Recognition - M. Guo et al., ECCV2018.
+Temporal 3D ConvNets using Temporal Transition Layer - A. Diba et al., CVPRW2018.
+Temporal 3D ConvNets: New Architecture and Transfer Learning for Video Classification - A. Diba et al., arXiv2017.
+Attentional Pooling for Action Recognition - R. Girdhar and D. Ramanan, NIPS2017.
+Fully Context-Aware Video Prediction - Byeon et al, arXiv2017.
+Hidden Two-Stream Convolutional Networks for Action Recognition - Y. Zhu et al, arXiv2017.
+Dynamic Image Networks for Action Recognition - H. Bilen et al, CVPR2016.
+Long-term Recurrent Convolutional Networks for Visual Recognition and Description - J. Donahue et al, CVPR2015.
+Describing Videos by Exploiting Temporal Structure - L. Yao et al, ICCV2015.
+Real-time Action Recognition with Enhanced Motion Vector CNNs - B. Zhang et al, CVPR2016.
+Action Recognition with Trajectory-Pooled Deep-Convolutional Descriptors - L. Wang et al, CVPR2015.
+
+

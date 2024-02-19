@@ -27,7 +27,7 @@ class TokenShiftHead(BaseHead):
     Args:
         num_classes (int): The number of classes to be classified.
         in_channels (int): The number of channles in input feature.
-        num_seg(int): The number of segments. Default: 8. 
+        num_seg(int): The number of segments. Default: 8.
         loss_cfg (dict): Config for building config. Default: dict(name='CrossEntropyLoss').
         ls_eps (float): Label smoothing epsilon. Default: 0.01.
         std (float): Std(Scale) Value in normal initilizar. Default: 0.02.

@@ -350,7 +350,7 @@ class SampleAVAFrames(SampleFrames):
 
         #delta=(timestamp - timestamp_start) 为该帧距离15min视频开头有几秒
         #center_index=fps*delta为该帧距离15min视频开头有几帧
-        #center_index+1是为了避免后续采样时出现负数? 
+        #center_index+1是为了避免后续采样时出现负数?
         #后续需要以center_index为中心前后采样视频帧片段
         center_index = fps * (timestamp - timestamp_start) + 1
 
@@ -372,4 +372,3 @@ class SampleAVAFrames(SampleFrames):
                     f'frame_interval={self.frame_interval}, '
                     f'test_mode={self.test_mode})')
         return repr_str
-

@@ -14,8 +14,8 @@
 <div align="center">
 <img width="600" alt="图片" src="https://user-images.githubusercontent.com/46156734/148925774-a04b641c-6a71-43ed-a7c0-d4b66e8d6e8a.png">
 </div>
-  
-EIVideo，基于百度飞桨MA-Net交互式视频分割模型打造的交互式**智能视频**标注工具箱，只需简单标注几帧，即可完成全视频标注，若自动标注结果未达要求还可通过多次和视频交互而不断提升视频分割质量，直至对分割质量满意。  
+
+EIVideo，基于百度飞桨MA-Net交互式视频分割模型打造的交互式**智能视频**标注工具箱，只需简单标注几帧，即可完成全视频标注，若自动标注结果未达要求还可通过多次和视频交互而不断提升视频分割质量，直至对分割质量满意。
 
 戳 -> 了解相关[技术文章&模型原理](等待微信公众号)
 
@@ -54,14 +54,14 @@ EIVideo，基于百度飞桨MA-Net交互式视频分割模型打造的交互式*
 <div align="center"> <img width="100" alt="图片" src="https://user-images.githubusercontent.com/46156734/148928046-b1490080-52f0-4a15-b7ff-11d54b135039.png"> </div>
 
 
-> 如果您愿意参与到EIVideo或QEIVideo的建设中来，欢迎您与PMC取得联系 -> WX:GT_ZhangAcer  
+> 如果您愿意参与到EIVideo或QEIVideo的建设中来，欢迎您与PMC取得联系 -> WX:GT_ZhangAcer
 
 ## 使用方式
 ### 安装&运行
 #### QPT包 - 适合无Python基础用户
-自动化配置相关Python环境，但仅支持Windows7/10/11操作系统，且不对盗版Windows7做任何适配。  
+自动化配置相关Python环境，但仅支持Windows7/10/11操作系统，且不对盗版Windows7做任何适配。
 下载地址：暂未上传
-> 自动化部署工具由[QPT - 自动封装工具](https://github.com/QPT-Family/QPT) 支持  
+> 自动化部署工具由[QPT - 自动封装工具](https://github.com/QPT-Family/QPT) 支持
 
 #### 标准Python包 - 适合普通Python开发者
 * 国际方式：
@@ -95,7 +95,7 @@ EIVideo，基于百度飞桨MA-Net交互式视频分割模型打造的交互式*
   cd 此处填写EIVideo所在的目录的绝对路径，且该目录下拥有EIVideo与QEIVideo两文件夹。
   # 运行
   python QEIVideo/start.py
-  
+
   # 如运行时无法找到对应包，可选择下述方式添加环境变量来调整索引次序后执行python
   # Windows
   set PYTHONPATH=$pwd:$PYTHONPATH
@@ -105,7 +105,7 @@ EIVideo，基于百度飞桨MA-Net交互式视频分割模型打造的交互式*
 
 > 上述命令仅适用于常规情况，若您安装了多个Python或修改了相关开发工具与配置，请自行修改相关命令使其符合您的开发环境。
 
-## (Q)EIVideo产品规划安排  
+## (Q)EIVideo产品规划安排
 > 由于QEIVideo由飞桨开源社区学生爱好者构成，所以在项目的产出过程中将会以学习为主进行开源贡献，如您原因与我们一同建设，我们也将非常欢迎~
 <div align="center"> <img width="100" alt="图片" src="https://user-images.githubusercontent.com/46156734/148928475-b5b340b7-241d-4ddc-8155-70d98c6384a9.png"> </div>
 
@@ -115,10 +115,9 @@ EIVideo，基于百度飞桨MA-Net交互式视频分割模型打造的交互式*
 - [ ] 增加视频目标检测、分类任务的交互式标注功能。
 
 ### 开源协议
-本项目使用GNU LESSER GENERAL PUBLIC LICENSE(LGPL)开源协议。  
+本项目使用GNU LESSER GENERAL PUBLIC LICENSE(LGPL)开源协议。
 > 因所使用的模型与数据集等原因，本项目中任一代码、参数均不可直接进行商用，如需商用请与我们取得联系。
 
 ### 引用来源
 1. EIVideo模型以及相关源码、论文与项目 - [PaddleVideo](https://github.com/PaddlePaddle/PaddleVideo)
 2. 部分表情包来源 - [甘城なつき](https://www.pixiv.net/users/3036679)
-

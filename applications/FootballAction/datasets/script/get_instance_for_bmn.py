@@ -208,7 +208,7 @@ if __name__ == "__main__":
         gts_data = json.load(open(label_file, 'rb'))
         gts_process = gen_gts_for_bmn(gts_data)
         gts_bmn = combile_gts(gts_bmn, gts_process, item)
-    
+
     gts_bmn = save_feature_to_numpy(gts_bmn, out_dir + '/feature')
 
     with open(out_dir + '/label.json', 'w', encoding='utf-8') as f:

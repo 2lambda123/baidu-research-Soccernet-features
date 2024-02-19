@@ -43,7 +43,7 @@ sh download.sh
 - lstm_pool_mode: 用于控制lstm 序列池化的方式，默认是"text_guide"表示利用文本加强池化注意力权重，如果设置为空，则默认为自注意力的权重。
 
 ```
-sh train.sh 
+sh train.sh
 ```
 ##  模型评估
 模型对测试集进行评估，同时支持将checkpoint 模型转为inference 模型， 可用参数'save_only' 选项控制，设置即只用于做模型转换，得到inference 模型

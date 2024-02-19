@@ -203,7 +203,7 @@ class Block(nn.Layer):
         bt, n, c = x.shape
         b = bt // t
         x = x.reshape([b, t, n, c]) #B T N C
-        
+
         fold = c // self.foldP_div
         out = paddle.zeros_like(x)
         out.stop_gradient = True
@@ -214,12 +214,12 @@ class Block(nn.Layer):
         # exit(0)
         out[:, :-1, 0, :fold] = x[:, 1:, 0, :fold] # shift left
         out[:, 1:,  0, fold:2*fold] = x[:,:-1:, 0, fold:2*fold]
-        
+
         out[:, :, 1:, :2*fold] = x[:, :, 1:, :2*fold]
         out[:, :, :, 2*fold:] = x[:, :, :, 2*fold:]
-        
+
         return out.reshape([bt, n, c])
-    
+
     def forward(self, x):
         x = self.shuift_tk(x)
         x = x + self.drop_path(self.attn(self.norm1(x)))

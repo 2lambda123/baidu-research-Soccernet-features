@@ -17,7 +17,7 @@ bash download_videos.sh
 为了方便用户，我们将视频文件以zip包的形式上传到百度网盘，您可以直接进行下载 [Link]() <sup>coming soon</sup>.
 
 
-**注意: 您自己下载的视频文件应当被放置在`data/ava/videos`文件夹下**  
+**注意: 您自己下载的视频文件应当被放置在`data/ava/videos`文件夹下**
 
 ---
 ## 2.准备标注文件
@@ -34,7 +34,7 @@ bash download_annotations.sh
 VERSION=2.2 bash download_annotations.sh
 ```
 
-**注意：事实上，我们也同样在百度网盘中提供了该标注文件，所以您无需自己下载** 
+**注意：事实上，我们也同样在百度网盘中提供了该标注文件，所以您无需自己下载**
 
 ---
 ## 3. 切分视频文件
@@ -58,7 +58,7 @@ bash extract_rgb_frames.sh
 
 ## 5.拉取提名文件
 
-这个脚本来自于Facbook研究院[Long-Term Feature Banks](https://github.com/facebookresearch/video-long-term-feature-banks). 
+这个脚本来自于Facbook研究院[Long-Term Feature Banks](https://github.com/facebookresearch/video-long-term-feature-banks).
 您可以使用如下的脚本来获取预计算的提名文件列表。
 
 ```shell

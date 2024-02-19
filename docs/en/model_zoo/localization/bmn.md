@@ -65,7 +65,7 @@ Test accuracy in ActivityNet1.3:
 
 ### export inference model
 
- To get model architecture file `BMN.pdmodel` and parameters file `BMN.pdiparams`, use: 
+ To get model architecture file `BMN.pdmodel` and parameters file `BMN.pdiparams`, use:
 
 ```bash
 python3.7 tools/export_model.py -c configs/localization/bmn.yaml \
@@ -97,7 +97,7 @@ BMN Inference results of data/example_feat.npy :
 {'score': 0.06876271963119507, 'segment': [23.6037, 114.2916]}
 ```
 
-Inference results are saved in `data/bmn/BMN_INFERENCE_results`. 
+Inference results are saved in `data/bmn/BMN_INFERENCE_results`.
 
 ## Reference
 

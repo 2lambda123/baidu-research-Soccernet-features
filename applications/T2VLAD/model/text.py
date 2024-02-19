@@ -144,5 +144,3 @@ class OpenAI_GPT(TextEmbedding):
             hidden_states = self.model(tokens_tensor)
             embeddings = hidden_states[0].numpy()
         return embeddings.squeeze(0)
-
-

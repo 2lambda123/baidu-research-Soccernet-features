@@ -29,7 +29,7 @@ def cosine_sim(im, s):
   '''cosine similarity between all the image and sentence pairs
   '''
   inner_prod = im.mm(s.t())
-  im_norm = paddle.sqrt((im ** 2).sum(axis=1).reshape([-1, 1]) + 1e-18) 
+  im_norm = paddle.sqrt((im ** 2).sum(axis=1).reshape([-1, 1]) + 1e-18)
   s_norm = paddle.sqrt((s ** 2).sum(axis=1).reshape([-1, 1]) + 1e-18)
   sim = inner_prod / (im_norm * s_norm)
   return sim
@@ -57,10 +57,10 @@ class ContrastiveLoss(nn.Layer):
     if margin is None:
       margin = self.margin
 
-    batch_size = scores.shape[0] 
+    batch_size = scores.shape[0]
     diagonal = paddle.diagonal(scores).reshape([batch_size, 1])
     # mask to clear diagonals which are positive pairs
-    pos_masks = paddle.eye(batch_size).astype('bool') 
+    pos_masks = paddle.eye(batch_size).astype('bool')
 
     batch_topk = min(batch_size, self.topk)
     if self.direction == 'i2t' or self.direction == 'bi':
@@ -68,7 +68,7 @@ class ContrastiveLoss(nn.Layer):
       # compare every diagonal score to scores in its collumn
       # caption retrieval
       cost_s = (margin + scores - d1).clip(min=0)
-      cost_s[pos_masks] =  0 
+      cost_s[pos_masks] =  0
       if self.max_violation:
         cost_s, _ = paddle.topk(cost_s, batch_topk, axis=1)
         cost_s = cost_s / batch_topk
@@ -83,7 +83,7 @@ class ContrastiveLoss(nn.Layer):
       d2 = diagonal.t().expand_as(scores) # same row for s2im (negative image)
       # compare every diagonal score to scores in its row
       cost_im = (margin + scores - d2).clip(min=0)
-      cost_im[pos_masks] = 0 
+      cost_im[pos_masks] = 0
       if self.max_violation:
         cost_im, _ = paddle.topk(cost_im, batch_topk, axis=0)
         cost_im = cost_im / batch_topk

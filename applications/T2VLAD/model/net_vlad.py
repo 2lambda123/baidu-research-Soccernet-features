@@ -40,16 +40,16 @@ class NetVLAD(nn.Layer):
         self.batch_norm2 = nn.BatchNorm1D(clusters) if add_batch_norm else None
         # The `clusters2` weights are the visual words `c_k` in the paper
         self.clusters1 = paddle.create_parameter([1, feature_size, cluster_size], dtype='float32', default_initializer=nn.initializer.Assign(paddle.randn([1, feature_size, cluster_size]) * init_sc))
-        self.clusters2 = paddle.create_parameter([1, feature_size, cluster_size], dtype='float32', default_initializer=nn.initializer.Assign(paddle.randn([1, feature_size, cluster_size]) * init_sc)) 
+        self.clusters2 = paddle.create_parameter([1, feature_size, cluster_size], dtype='float32', default_initializer=nn.initializer.Assign(paddle.randn([1, feature_size, cluster_size]) * init_sc))
         self.out_dim = self.cluster_size * feature_size
-    
+
     def sanity_checks(self, x):
         """Catch any nans in the inputs/clusters"""
         if paddle.isnan(paddle.sum(x)):
             raise ValueError("nan inputs")
-        if paddle.isnan(self.clusters[0][0]): 
+        if paddle.isnan(self.clusters[0][0]):
             raise ValueError("nan clusters")
-        
+
     def forward(self, x, freeze=False, mask=None):
         """Aggregates feature maps into a fixed size representation.  In the following
         notation, B = batch_size, N = num_features, K = num_clusters, D = feature_size.
@@ -61,7 +61,7 @@ class NetVLAD(nn.Layer):
             (th.Tensor): B x DK
         """
         self.sanity_checks(x)
-        max_sample = x.shape[1] 
+        max_sample = x.shape[1]
         x = x.reshape([-1, self.feature_size]) # B x N x D -> BN x D
 
         if freeze == True:

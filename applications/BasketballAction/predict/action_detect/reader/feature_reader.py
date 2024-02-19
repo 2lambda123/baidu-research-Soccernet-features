@@ -76,7 +76,7 @@ class FeatureReader(DataReader):
                     pcm_feature = pcm_feature_list[start_id: end_id]
 
                     image_feature = np.concatenate((image_feature, pcm_feature), axis=1)
-                    
+
                     batch_out.append((image_feature, audio_feature, 0, prop_info))
                     if len(batch_out) == self.batch_size:
                         yield batch_out
@@ -84,4 +84,3 @@ class FeatureReader(DataReader):
                 except Exception as e:
                     continue
         return reader
-

@@ -174,9 +174,9 @@ python3 -m paddle.distributed.launch \
   | ppTSM  | train--RandomCrop=512  val--center_crop=512 |  0.8603   |  0.8822  |
   | ppTSM  |                  原图输入                   |  0.8617   |  0.8910  |
 
-  
 
-- 考虑应用场景视频的 aspect ratio 大都为 16：9 和 4：3 等，同时为了避免非均匀缩放拉伸带来的干扰 ，可以采用了（224x3）x(224x2)=672x448 的输入尺寸来更充分得利用有限的输入尺寸。 
+
+- 考虑应用场景视频的 aspect ratio 大都为 16：9 和 4：3 等，同时为了避免非均匀缩放拉伸带来的干扰 ，可以采用了（224x3）x(224x2)=672x448 的输入尺寸来更充分得利用有限的输入尺寸。
 
 ## 模型部署
 
@@ -187,4 +187,3 @@ python3 -m paddle.distributed.launch \
 - [TSM: Temporal Shift Module for Efficient Video Understanding](https://arxiv.org/pdf/1811.08383.pdf), Ji Lin, Chuang Gan, Song Han
 
 - [ [Quality Assessment of In-the-Wild Videos](https://dl.acm.org/citation.cfm?doid=3343031.3351028)](https://arxiv.org/pdf/1811.08383.pdf), Dingquan Li, Tingting Jiang, and Ming Jiang
-

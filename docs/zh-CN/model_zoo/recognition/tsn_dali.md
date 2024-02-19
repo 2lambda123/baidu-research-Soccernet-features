@@ -15,7 +15,7 @@
 
 ### 性能
 
-测试环境: 
+测试环境:
 ```
 机器: Tesla v100
 显存: 4卡16G
@@ -25,9 +25,9 @@ Cuda: 9.0
 
 训练速度对比如下:
 
-| 加速方式  | batch耗时/s  | reader耗时/s | ips:instance/sec | 加速比 | 
+| 加速方式  | batch耗时/s  | reader耗时/s | ips:instance/sec | 加速比 |
 | :--------------- | :--------: | :------------: | :------------: | :------------: |
-| DALI | 2.083 | 1.804 | 15.36597  | 1.41x | 
+| DALI | 2.083 | 1.804 | 15.36597  | 1.41x |
 | Dataloader:  单卡num_workers=4 | 2.943 | 2.649 | 10.87460| base |
 | pytorch实现 | TODO | TODO | TODO | TODO |
 
@@ -78,7 +78,7 @@ MODEL:
 
 ### 开始训练
 
-模型训练的启动命令为: 
+模型训练的启动命令为:
 
 ```bash
 python3.7 -B -m paddle.distributed.launch --gpus="0,1,2,3" --log_dir=log_tsn main.py --train_dali -c configs/recognition/tsn/tsn_dali.yaml -o log_level="INFO"
@@ -86,7 +86,7 @@ python3.7 -B -m paddle.distributed.launch --gpus="0,1,2,3" --log_dir=log_tsn mai
 
 - 通过`-c`指定模型训练参数配置文件，模型及训练参数配置请参考配置文件```configs/recognition/tsn/tsn_dali.yaml```。
 
-- 如若进行finetune，请下载PaddleVideo的已发布模型[comming soon]()， 通过`--weights`指定权重存放路径可进行模型finetune。 
+- 如若进行finetune，请下载PaddleVideo的已发布模型[comming soon]()， 通过`--weights`指定权重存放路径可进行模型finetune。
 
 - 您可以自定义修改参数配置，参数用法请参考[config](../../tutorials/config.md)。
 
@@ -101,11 +101,3 @@ python3.7 -B -m paddle.distributed.launch --gpus="0,1,2,3" --log_dir=log_tsn mai
 ## 参考论文
 
 - [Temporal Segment Networks: Towards Good Practices for Deep Action Recognition](https://arxiv.org/abs/1608.00859), Limin Wang, Yuanjun Xiong, Zhe Wang, Yu Qiao, Dahua Lin, Xiaoou Tang, Luc Van Gool
-
-
-
-
-
-
-
-
