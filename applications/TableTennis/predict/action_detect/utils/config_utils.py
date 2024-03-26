@@ -48,7 +48,7 @@ def parse_config(cfg_file):
     """Load a config file into AttrDict"""
     import yaml
     with open(cfg_file, 'r') as fopen:
-        yaml_config = AttrDict(yaml.load(fopen, Loader=yaml.Loader))
+        yaml_config = AttrDict(yaml.load(fopen, Loader=yaml.SafeLoader))
     create_attr_dict(yaml_config)
     return yaml_config
 
